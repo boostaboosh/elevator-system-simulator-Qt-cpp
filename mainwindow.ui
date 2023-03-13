@@ -40,7 +40,7 @@
     <property name="alignment">
      <set>Qt::AlignCenter</set>
     </property>
-    <widget class="QComboBox" name="comboBox">
+    <widget class="QComboBox" name="floorSelectionComboBox">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -53,7 +53,7 @@
       <cursorShape>PointingHandCursor</cursorShape>
      </property>
     </widget>
-    <widget class="QPushButton" name="upButton">
+    <widget class="QPushButton" name="floorUpButton">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -69,7 +69,7 @@
       <string>up button</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="downButton">
+    <widget class="QPushButton" name="floorDownButton">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -134,7 +134,7 @@
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
-     <widget class="QLCDNumber" name="lcdNumber">
+     <widget class="QLCDNumber" name="elevatorDisplay">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -145,7 +145,7 @@
       </property>
      </widget>
     </widget>
-    <widget class="QComboBox" name="comboBox_2">
+    <widget class="QComboBox" name="elevatorSelectionComboBox">
      <property name="geometry">
       <rect>
        <x>150</x>
@@ -155,7 +155,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QComboBox" name="comboBox_3">
+    <widget class="QComboBox" name="elevatorFloorSelectionComboBox">
      <property name="geometry">
       <rect>
        <x>150</x>
@@ -223,7 +223,7 @@
       <enum>Qt::Horizontal</enum>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="elevatorHelpButton">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -236,7 +236,7 @@
       <string>help</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_5">
+    <widget class="QPushButton" name="openDoorButton">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -249,7 +249,7 @@
       <string>open doors</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_6">
+    <widget class="QPushButton" name="closeDoorButton">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -262,7 +262,7 @@
       <string>close doors</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_7">
+    <widget class="QPushButton" name="elevatorFireButton">
      <property name="geometry">
       <rect>
        <x>160</x>
@@ -301,7 +301,7 @@
       <enum>Qt::Horizontal</enum>
      </property>
     </widget>
-    <widget class="QCheckBox" name="checkBox">
+    <widget class="QCheckBox" name="doorObstacleCheckBox">
      <property name="geometry">
       <rect>
        <x>70</x>
@@ -337,7 +337,7 @@
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
-     <widget class="QComboBox" name="comboBox_4">
+     <widget class="QComboBox" name="elevatorDestinationFloorComboBox">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -347,7 +347,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_8">
+     <widget class="QPushButton" name="goToDestinationFloorButton">
       <property name="geometry">
        <rect>
         <x>150</x>
@@ -376,7 +376,7 @@
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
-     <widget class="QSpinBox" name="spinBox_2">
+     <widget class="QSpinBox" name="elevatorCargoLoadSpinBox">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -408,7 +408,7 @@
     <property name="alignment">
      <set>Qt::AlignCenter</set>
     </property>
-    <widget class="QSpinBox" name="spinBox">
+    <widget class="QSpinBox" name="numberOfFloorsSpinBox">
      <property name="geometry">
       <rect>
        <x>200</x>
@@ -431,7 +431,7 @@
       <string>number of floors</string>
      </property>
     </widget>
-    <widget class="QSpinBox" name="spinBox_3">
+    <widget class="QSpinBox" name="numberOfElevatorsSpinBox">
      <property name="geometry">
       <rect>
        <x>200</x>
@@ -459,7 +459,7 @@
       <string>number of elevators</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_2">
+    <widget class="QPushButton" name="startSimulationButton">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -472,7 +472,7 @@
       <string>start simulation</string>
      </property>
     </widget>
-    <widget class="QSpinBox" name="spinBox_4">
+    <widget class="QSpinBox" name="elevatorCarWeightLimitSpinBox">
      <property name="geometry">
       <rect>
        <x>200</x>
@@ -519,7 +519,7 @@
     <property name="alignment">
      <set>Qt::AlignCenter</set>
     </property>
-    <widget class="QTextEdit" name="textEdit">
+    <widget class="QTextEdit" name="elevatorListTextEdit">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -530,7 +530,7 @@
      </property>
     </widget>
    </widget>
-   <widget class="QTextEdit" name="textEdit_5">
+   <widget class="QTextEdit" name="outputTextEdit">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -560,7 +560,7 @@
     <property name="alignment">
      <set>Qt::AlignCenter</set>
     </property>
-    <widget class="QPushButton" name="pushButton_3">
+    <widget class="QPushButton" name="buildingPowerOutButton">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -573,7 +573,7 @@
       <string>power out</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_4">
+    <widget class="QPushButton" name="buildingFireButton">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -587,16 +587,6 @@
      </property>
     </widget>
    </widget>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>800</width>
-     <height>22</height>
-    </rect>
-   </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
