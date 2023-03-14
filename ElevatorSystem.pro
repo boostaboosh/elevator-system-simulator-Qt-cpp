@@ -16,14 +16,32 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    arrivalsensor.cpp \
+    audiosystem.cpp \
+    bell.cpp \
     button.cpp \
+    display.cpp \
+    door.cpp \
+    elevatorcar.cpp \
+    elevatorcontrolsystem.cpp \
+    floor.cpp \
     light.cpp \
+    lightsensor.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
+    arrivalsensor.h \
+    audiosystem.h \
+    bell.h \
     button.h \
+    display.h \
+    door.h \
+    elevatorcar.h \
+    elevatorcontrolsystem.h \
+    floor.h \
     light.h \
+    lightsensor.h \
     mainwindow.h
 
 FORMS += \
