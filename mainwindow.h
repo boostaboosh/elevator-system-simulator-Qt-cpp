@@ -17,5 +17,9 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    void setupEventHandlers();
+
+private slots:
+    void startSimulation();
 };
 #endif // MAINWINDOW_H
