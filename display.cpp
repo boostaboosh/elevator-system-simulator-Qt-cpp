@@ -1,13 +1,17 @@
 #include "display.h"
+#include <string>
+
+#include <QDebug>
 
 Display::Display()
 {
-    currentDisplayText = "";
+    currentDisplayFloorLevel = 0;
 }
 
-void Display::displayFloorNumber(Floor floor)
+void Display::displayFloorNumber(Floor* floor)
 {
-    // TODO: fill in implementation
+    currentDisplayFloorLevel = floor->floorLevel;
+    qInfo() << "Elevator display: " << currentDisplayFloorLevel;
 }
 
 void Display::displayWarningMessage(string message)

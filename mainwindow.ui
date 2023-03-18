@@ -385,6 +385,9 @@
         <height>31</height>
        </rect>
       </property>
+      <property name="maximum">
+       <number>100000</number>
+      </property>
      </widget>
     </widget>
    </widget>
@@ -417,6 +420,12 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="minimum">
+      <number>1</number>
+     </property>
+     <property name="maximum">
+      <number>99</number>
+     </property>
     </widget>
     <widget class="QLabel" name="label_3">
      <property name="geometry">
@@ -439,6 +448,9 @@
        <width>91</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="minimum">
+      <number>1</number>
      </property>
     </widget>
     <widget class="QLabel" name="label_4">
@@ -480,6 +492,9 @@
        <width>91</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="maximum">
+      <number>100000</number>
      </property>
     </widget>
     <widget class="QLabel" name="label_5">

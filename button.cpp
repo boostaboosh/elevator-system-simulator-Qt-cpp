@@ -1,18 +1,18 @@
 #include "button.h"
+#include <QDebug>
 
-Button::Button()
-{
-    buttonIsPressed = false;
-    Light light{};
-}
+//Button::Button()
+//{
+//}
 
 void Button::pressButton()
 {
     if (buttonIsPressed == false)
     {
         buttonIsPressed = true;
+        qInfo() << "\nbutton pressed";
         light.switchOn();
-    } else // buttonIsPressed is equal to true
+    } else // buttonIsPressed is equal to true (so unpress button)
     {
         buttonIsPressed = false;
         light.switchOff();

@@ -5,6 +5,7 @@
 #include <string>
 using namespace std;
 
+class Floor;
 /**
  * @brief The Display class models a display inside an elevator.
  */
@@ -12,12 +13,12 @@ class Display
 {
 public:
     Display();
-    void displayFloorNumber(Floor);
+    void displayFloorNumber(Floor* floor);
     void displayWarningMessage(string);
     void clearDisplay();
 
 private:
-    string currentDisplayText;
+    int currentDisplayFloorLevel;
 };
 
 #endif // DISPLAY_H

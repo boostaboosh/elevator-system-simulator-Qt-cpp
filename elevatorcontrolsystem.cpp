@@ -1,4 +1,6 @@
 #include "elevatorcontrolsystem.h"
+#include "float.h"
+#include "elevatorcar.h"
 
 ElevatorControlSystem::ElevatorControlSystem()
 {

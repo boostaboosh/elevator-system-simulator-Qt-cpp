@@ -10,6 +10,10 @@
 #include "audiosystem.h"
 #include "arrivalsensor.h"
 
+class Floor;
+class Display;
+class ArrivalSensor;
+class Bell;
 /**
  * @brief The ElevatorCar class models an elevator cab which services floors.
  */
@@ -17,8 +21,20 @@ class ElevatorCar
 {
 public:
     ElevatorCar();
-    void goToFloor(Floor destinationFloor);
-    void arriveAtFloor();
+    ElevatorCar(int carWeightLimit, int elevatorNumber, Floor* floor);
+    void goToFloor(Floor* destinationFloor);
+    void moveUp();
+    void moveDown();
+    void executeArrivalProcedure();
+
+public:
+    Floor* currentFloor;
+    int cargoLoad;
+    int weightLimit;
+    int elevatorNumber;
+    Display* display;
+    ArrivalSensor* sensor;
+    Bell* bell;
 };
 
 #endif // ELEVATORCAR_H

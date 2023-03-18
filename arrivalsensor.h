@@ -10,7 +10,7 @@ public:
     ArrivalSensor();
     void notifyElevatorCar();
 
-private:
+public:
     bool elevatorHasArrived;
 };
 

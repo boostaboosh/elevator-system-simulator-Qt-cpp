@@ -1,4 +1,5 @@
 #include "arrivalsensor.h"
+#include <QDebug>
 
 ArrivalSensor::ArrivalSensor()
 {
@@ -7,5 +8,10 @@ ArrivalSensor::ArrivalSensor()
 
 void ArrivalSensor::notifyElevatorCar()
 {
-    // TODO: fill in implementation
+    if (elevatorHasArrived == true)
+    {
+        qInfo() << "arrival sensor is triggered";
+    } else {
+        qInfo() << "arrival sensor is not triggered";
+    }
 }

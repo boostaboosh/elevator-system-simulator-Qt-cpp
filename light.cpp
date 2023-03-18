@@ -1,4 +1,5 @@
 #include "light.h"
+#include <QDebug>
 
 Light::Light()
 {
@@ -8,9 +9,11 @@ Light::Light()
 void Light::switchOn()
 {
     lightTurnedOn = true;
+    qInfo() << "light turned on";
 }
 
 void Light::switchOff()
 {
     lightTurnedOn = false;
+    qInfo() << "light turned off";
 }

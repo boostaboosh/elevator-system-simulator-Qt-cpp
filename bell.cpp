@@ -1,4 +1,5 @@
 #include "bell.h"
+#include <QDebug>
 
 Bell::Bell()
 {
@@ -7,5 +8,5 @@ Bell::Bell()
 
 void Bell::ring()
 {
-    // TODO: fill in implementation
+    qInfo() << "ring bell";
 }

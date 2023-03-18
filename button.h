@@ -9,11 +9,11 @@
 class Button
 {
 public:
-    Button();
+    Button() : buttonIsPressed(false){}
     void pressButton();
+    bool buttonIsPressed;
 
 private:
-    bool buttonIsPressed;
     Light light;
 };
 

@@ -11,10 +11,10 @@
 class Floor
 {
 public:
+    Floor();
     Floor(int floorLevelNumber);
     void requestElevator();
-
-private:
+    Button button;
     int floorLevel;
 };
 
