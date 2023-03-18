@@ -16,6 +16,7 @@ public:
     void requestElevator();
     Button button;
     int floorLevel;
+    Door door;
 };
 
 #endif // FLOOR_H

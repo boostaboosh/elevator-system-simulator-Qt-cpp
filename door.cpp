@@ -1,4 +1,6 @@
 #include "door.h"
+#include <QTimer>
+#include <QDebug>
 
 Door::Door()
 {
@@ -6,12 +8,14 @@ Door::Door()
     LightSensor lightSensor{};
 }
 
-void Door::open()
-{
-    // TODO: fill in implementation
-}
-
 void Door::close()
 {
-    // TODO: fill in implementation
+    doorIsOpen = false;
+    qInfo() << "close door";
+}
+
+void Door::open()
+{
+    doorIsOpen = true;
+    qInfo() << "open door";
 }

@@ -15,7 +15,6 @@ public:
 
 private:
     bool doorIsOpen;
-    const int openingDuration = 10;
     LightSensor lightSensor;
 };
 

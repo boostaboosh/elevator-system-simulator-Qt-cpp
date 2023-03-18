@@ -14,6 +14,7 @@ class Floor;
 class Display;
 class ArrivalSensor;
 class Bell;
+class Door;
 /**
  * @brief The ElevatorCar class models an elevator cab which services floors.
  */
@@ -26,6 +27,8 @@ public:
     void moveUp();
     void moveDown();
     void executeArrivalProcedure();
+    void closeCarAndFloorDoors();
+    void openDoorsForTenSeconds();
 
 public:
     Floor* currentFloor;
@@ -35,6 +38,8 @@ public:
     Display* display;
     ArrivalSensor* sensor;
     Bell* bell;
+    Door* door;
+
 };
 
 #endif // ELEVATORCAR_H

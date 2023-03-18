@@ -1,5 +1,7 @@
 #include "elevatorcar.h"
 #include <QDebug>
+#include <chrono>
+#include <thread>
 
 ElevatorCar::ElevatorCar()
 {
@@ -10,6 +12,7 @@ ElevatorCar::ElevatorCar()
     display = new Display{};
     sensor = new ArrivalSensor{};
     bell = new Bell{};
+    door = new Door{};
 }
 
 ElevatorCar::ElevatorCar(int carWeightLimit, int elevatorNumber, Floor* floor)
@@ -21,6 +24,20 @@ ElevatorCar::ElevatorCar(int carWeightLimit, int elevatorNumber, Floor* floor)
     display = new Display{};
     sensor = new ArrivalSensor{};
     bell = new Bell{};
+    door = new Door{};
+}
+
+void ElevatorCar::openDoorsForTenSeconds()
+{
+    // elevator and floor open their doors
+    qInfo() << "Elevator and floor doors:";
+    this->door->open();
+    this->currentFloor->door.open();
+
+    // elevator and floor remain open for 10 seconds to allow people to board
+    int openingDuration = 10;
+    qInfo() << "wait 10 seconds";
+    std::this_thread::sleep_for(std::chrono::seconds(openingDuration));
 }
 
 void ElevatorCar::executeArrivalProcedure()
@@ -29,11 +46,14 @@ void ElevatorCar::executeArrivalProcedure()
     this->bell->ring();
 
     // elevator and floor open their doors for 10 seconds
+    openDoorsForTenSeconds();
 
     // elevator rings bell again
+    this->bell->ring();
 
     // elevator and floor close their doors
-
+    this->door->close();
+    this->currentFloor->door.close();
 }
 
 void ElevatorCar::moveUp()

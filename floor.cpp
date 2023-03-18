@@ -8,12 +8,14 @@ Floor::Floor()
 {
     floorLevel = 0;
     button = Button{};
+    door = Door{};
 }
 
 Floor::Floor(int floorLevelNumber)
 {
     floorLevel = floorLevelNumber;
     button = Button{};
+    door = Door{};
 }
 
 void Floor::requestElevator()
