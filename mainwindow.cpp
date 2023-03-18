@@ -89,7 +89,7 @@ void MainWindow::startSimulation()
 int nextElevator = 0;
 ElevatorCar* MainWindow::getNextElevator(){
     nextElevator = nextElevator % (numberOfElevators);
-    ElevatorCar* next = &elevators[nextElevator];
+    ElevatorCar* next = elevators+nextElevator;
     nextElevator++;
     return next;
 }
@@ -99,7 +99,7 @@ void MainWindow::requestElevator()
     // recieve elevator request
     // identify selected floor
     int selectedFloorLevel = ui->floorSelectionComboBox->currentIndex(); // index in floors of the selected floor level
-    Floor* thisFloor = &floors[selectedFloorLevel];
+    Floor* thisFloor = floors+selectedFloorLevel;
     // turn on button light by pressing the button
     thisFloor->button.pressButton();
     // request elevator at floor
