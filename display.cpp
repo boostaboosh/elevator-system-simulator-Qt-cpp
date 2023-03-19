@@ -1,6 +1,5 @@
 #include "display.h"
 #include <string>
-
 #include <QDebug>
 
 Display::Display()

@@ -14,8 +14,10 @@ public:
     Floor();
     Floor(int floorLevelNumber);
     void requestElevator();
-    Button button;
+
+public:
     int floorLevel;
+    Button button;
     Door door;
 };
 

@@ -23,7 +23,6 @@ SOURCES += \
     display.cpp \
     door.cpp \
     elevatorcar.cpp \
-    elevatorcontrolsystem.cpp \
     floor.cpp \
     light.cpp \
     lightsensor.cpp \
@@ -38,7 +37,6 @@ HEADERS += \
     display.h \
     door.h \
     elevatorcar.h \
-    elevatorcontrolsystem.h \
     floor.h \
     light.h \
     lightsensor.h \

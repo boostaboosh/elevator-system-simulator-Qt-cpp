@@ -1,5 +1,4 @@
 #include "door.h"
-#include <QTimer>
 #include <QDebug>
 
 Door::Door()

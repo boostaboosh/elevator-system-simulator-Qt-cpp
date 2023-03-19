@@ -6,7 +6,6 @@
 #include <QComboBox>
 #include "floor.h"
 #include "elevatorcar.h"
-#include "elevatorcontrolsystem.h"
 
 
 QT_BEGIN_NAMESPACE
