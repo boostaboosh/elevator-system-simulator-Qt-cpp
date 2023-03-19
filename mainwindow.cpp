@@ -4,6 +4,11 @@
 #include <QDebug>
 #include <iostream>
 using namespace std;
+#include <QApplication>
+#include <QEventLoop>
+#include <QTimer>
+#include <QDebug>
+#include <QCoreApplication>
 
 Floor* floors;
 ElevatorCar* elevators;
@@ -159,6 +164,18 @@ void MainWindow::closeDoors()
     selectedElevator->closeElevatorAndFloorDoors();
 }
 
+void MainWindow::helpSignal()
+{
+    // identify selected elevator
+    ElevatorCar* selectedElevator = getSelectedElevator();
+
+    // connect passenger to building safety service through
+    qInfo() << "Connecting elevator " << selectedElevator->elevatorNumber << " to building safety service";
+
+    // if building safety services does not respond then call 911
+    qInfo() << "No response -> 911 placed";
+}
+
 void MainWindow::setupEventHandlers()
 {
     // start simultation button event handler
@@ -177,4 +194,7 @@ void MainWindow::setupEventHandlers()
 
     // close doors button inside elevator event handler
     connect(ui->closeDoorButton, SIGNAL(released()), this, SLOT(closeDoors()));
+
+    // elevator help button functionality
+    connect(ui->elevatorHelpButton, SIGNAL(released()), this, SLOT(helpSignal()));
 }

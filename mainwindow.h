@@ -35,5 +35,6 @@ private slots:
     void sendElevatorToFloor();
     void openDoors();
     void closeDoors();
+    void helpSignal();
 };
 #endif // MAINWINDOW_H
