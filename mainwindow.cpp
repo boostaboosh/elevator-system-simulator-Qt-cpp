@@ -176,6 +176,23 @@ void MainWindow::helpSignal()
     qInfo() << "No response -> 911 placed";
 }
 
+void MainWindow::buildingFireSignal(){
+    // building fire signal recieved
+    qInfo() << "Building fire alarm triggered";
+    // for each elevator
+    for (int counter = 0; counter < numberOfElevators; counter++)
+    {
+        // display text message informing of emergency and asking to disembark once safe floor is reached
+        elevators[counter].display->displayWarningMessage("Fire alarm triggered - disembark once safe floor is reached");
+        // play audio message informing of emergency and asking to disembark once safe floor is reached
+        elevators[counter].audioSystem->playMessage("Fire alarm triggered - disembark once safe floor is reached");
+        // move to safe floor (ground floor)
+        elevators[counter].goToFloor(&floors[0]);
+        // execute arrival procdure once at safe floor
+        elevators[counter].executeArrivalProcedure(ui->doorObstacleCheckBox->isChecked());
+    }
+}
+
 void MainWindow::setupEventHandlers()
 {
     // start simultation button event handler
@@ -197,4 +214,7 @@ void MainWindow::setupEventHandlers()
 
     // elevator help button functionality
     connect(ui->elevatorHelpButton, SIGNAL(released()), this, SLOT(helpSignal()));
+
+    // building fire button functionality
+    connect(ui->buildingFireButton, SIGNAL(released()), this, SLOT(buildingFireSignal()));
 }

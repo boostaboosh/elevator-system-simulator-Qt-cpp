@@ -14,9 +14,9 @@ void Display::displayFloorNumber(Floor* floor)
     qInfo() << "Elevator display: " << currentDisplayFloorLevel;
 }
 
-void Display::displayWarningMessage(string message)
+void Display::displayWarningMessage(string warningMessage)
 {
-    // TODO: fill in implementation
+    qInfo() << "Elevator display: "<< QString::fromStdString(warningMessage);
 }
 
 void Display::clearDisplay()

@@ -1,11 +1,15 @@
 #include "audiosystem.h"
+#include <string>
+using namespace std;
+#include <QDebug>
+#include <QString>
 
 AudioSystem::AudioSystem()
 {
 
 }
 
-void AudioSystem::playMessage()
+void AudioSystem::playMessage(string audioMessage)
 {
-    // TODO: fill in implementation
+  qInfo() << "Elevator audio system play message: " << QString::fromStdString(audioMessage);
 }

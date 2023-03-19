@@ -40,6 +40,7 @@ public:
     Bell* bell;
     Door* door;
     bool stopFlag;
+    AudioSystem* audioSystem;
 };
 
 #endif // ELEVATORCAR_H

@@ -15,6 +15,7 @@ ElevatorCar::ElevatorCar()
     bell = new Bell{};
     door = new Door{};
     stopFlag = false;
+    audioSystem = new AudioSystem{};
 }
 
 ElevatorCar::ElevatorCar(int carWeightLimit, int elevatorNumber, Floor* floor)
@@ -28,6 +29,7 @@ ElevatorCar::ElevatorCar(int carWeightLimit, int elevatorNumber, Floor* floor)
     bell = new Bell{};
     door = new Door{};
     stopFlag = false;
+    audioSystem = new AudioSystem{};
 }
 
 void ElevatorCar::openElevatorAndFloorDoorsForTenSeconds()
