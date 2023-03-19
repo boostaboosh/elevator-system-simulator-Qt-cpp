@@ -20,6 +20,12 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    Floor* floors;
+    ElevatorCar* elevators;
+
+    int numberOfFloors;
+    int numberOfElevators;
+
 private:
     Ui::MainWindow *ui;
     void setupEventHandlers();

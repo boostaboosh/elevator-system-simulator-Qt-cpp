@@ -11,11 +11,11 @@ using namespace std;
 #include <QCoreApplication>
 #include <algorithm>
 
-Floor* floors;
-ElevatorCar* elevators;
+//Floor* floors;
+//ElevatorCar* elevators;
 
-int numberOfFloors;
-int numberOfElevators;
+//int numberOfFloors;
+//int numberOfElevators;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -171,7 +171,7 @@ void MainWindow::helpSignal()
     ElevatorCar* selectedElevator = getSelectedElevator();
 
     // connect passenger to building safety service through
-    qInfo() << "Connecting elevator " << selectedElevator->elevatorNumber << " to building safety service";
+    qInfo() << "\nConnecting elevator " << selectedElevator->elevatorNumber << " to building safety service";
 
     // if building safety services does not respond then call 911
     qInfo() << "No response -> 911 placed";
@@ -179,10 +179,12 @@ void MainWindow::helpSignal()
 
 void MainWindow::buildingFireSignal(){
     // building fire signal recieved
-    qInfo() << "Building fire alarm triggered";
+    qInfo() << "\nBuilding fire alarm triggered\n";
     // for each elevator
     for (int counter = 0; counter < numberOfElevators; counter++)
     {
+        // display which elevator is outputting message in the console
+        qInfo() << "Elevator " << elevators[counter].elevatorNumber << ":";
         // display text message informing of emergency and asking to disembark once safe floor is reached
         elevators[counter].display->displayWarningMessage("Fire alarm triggered - disembark once safe floor is reached");
         // play audio message informing of emergency and asking to disembark once safe floor is reached
@@ -200,7 +202,7 @@ void MainWindow::elevatorFireSignal(){
     // identify selected elevator
     ElevatorCar* selectedElevator = getSelectedElevator();
 
-    qInfo() << "Elevator " << selectedElevator->elevatorNumber << " fire alarm triggered";
+    qInfo() << "\nElevator " << selectedElevator->elevatorNumber << " fire alarm triggered";
 
     // display text message informing of emergency and asking to disembark once safe floor is reached
     selectedElevator->display->displayWarningMessage("Fire alarm triggered - disembark once safe floor is reached");
@@ -220,7 +222,7 @@ void MainWindow::addCargoLoad(){
     // add new load to elevator
     int newLoad = selectedElevator->cargoLoad + cargoLoadToBeAdded;
     selectedElevator->cargoLoad = std::max(0, newLoad);
-    qInfo() << "New cargo load of Elevator " << selectedElevator->elevatorNumber << " is " << selectedElevator->cargoLoad;
+    qInfo() << "\nNew cargo load of Elevator " << selectedElevator->elevatorNumber << " is " << selectedElevator->cargoLoad;
 
     // check if new load exceeds elevator weight limit. If it does set elevator to overloaded.
     if (newLoad >= selectedElevator->weightLimit){
@@ -233,10 +235,12 @@ void MainWindow::addCargoLoad(){
 void MainWindow::buildingPowerOutSignal(){
     // recieve building power out signal
     // building fire signal recieved
-    qInfo() << "Building power out!";
+    qInfo() << "\nBuilding power out!\n";
     // for each elevator
     for (int counter = 0; counter < numberOfElevators; counter++)
     {
+        // display which elevator is outputting message in the console
+        qInfo() << "Elevator " << elevators[counter].elevatorNumber << ":";
         // display text message informing of emergency and asking to disembark once safe floor is reached
         elevators[counter].display->displayWarningMessage("Building power out - disembark once safe floor is reached");
         // play audio message informing of emergency and asking to disembark once safe floor is reached

@@ -107,13 +107,13 @@ void ElevatorCar::goToFloor(Floor* destinationFloor)
     // if elevator is overlaoded do not move and trigger overloaded messages to passengers
     if (this->overloaded == true){
         // display audio and text messages asking for the laod to be reduced before attempting to move again
-        this->display->displayWarningMessage("Elevator is overloaded. Reduce cargo load before attempting to move again.");
+        this->display->displayWarningMessage("\nElevator is overloaded. Reduce cargo load before attempting to move again.");
         this->audioSystem->playMessage("Elevator is overloaded. Reduce cargo load before attempting to move again.");
         return;
     }
 
     // console output to display elevator going to floor
-    qInfo() << "Elevator " << this->elevatorNumber << " going to floor " << destinationFloor->floorLevel;
+    qInfo() << "\nElevator " << this->elevatorNumber << " going to floor " << destinationFloor->floorLevel;
 
     // set arrival sensor to false
     sensor->elevatorHasArrived = false;
