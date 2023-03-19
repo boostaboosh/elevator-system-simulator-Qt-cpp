@@ -39,5 +39,6 @@ private slots:
     void buildingFireSignal();
     void elevatorFireSignal();
     void addCargoLoad();
+    void buildingPowerOutSignal();
 };
 #endif // MAINWINDOW_H

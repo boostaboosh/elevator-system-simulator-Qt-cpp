@@ -230,6 +230,24 @@ void MainWindow::addCargoLoad(){
     }
 }
 
+void MainWindow::buildingPowerOutSignal(){
+    // recieve building power out signal
+    // building fire signal recieved
+    qInfo() << "Building power out!";
+    // for each elevator
+    for (int counter = 0; counter < numberOfElevators; counter++)
+    {
+        // display text message informing of emergency and asking to disembark once safe floor is reached
+        elevators[counter].display->displayWarningMessage("Building power out - disembark once safe floor is reached");
+        // play audio message informing of emergency and asking to disembark once safe floor is reached
+        elevators[counter].audioSystem->playMessage("Building power out - disembark once safe floor is reached");
+        // move to safe floor (ground floor)
+        elevators[counter].goToFloor(&floors[0]);
+        // execute arrival procdure once at safe floor
+        elevators[counter].executeArrivalProcedure(ui->doorObstacleCheckBox->isChecked());
+    }
+}
+
 void MainWindow::setupEventHandlers()
 {
     // start simultation button event handler
@@ -261,4 +279,7 @@ void MainWindow::setupEventHandlers()
 
     // elevator cargo load functionality
     connect(ui->addCargoLoadButton, SIGNAL(released()), this, SLOT(addCargoLoad()));
+
+    // building power out button functionality
+    connect(ui->buildingPowerOutButton, SIGNAL(released()), this, SLOT(buildingPowerOutSignal()));
 }
