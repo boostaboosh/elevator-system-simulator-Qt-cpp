@@ -9,6 +9,7 @@ using namespace std;
 #include <QTimer>
 #include <QDebug>
 #include <QCoreApplication>
+#include <algorithm>
 
 Floor* floors;
 ElevatorCar* elevators;
@@ -209,6 +210,26 @@ void MainWindow::elevatorFireSignal(){
     selectedElevator->executeArrivalProcedure(ui->doorObstacleCheckBox->isChecked());
 }
 
+void MainWindow::addCargoLoad(){
+    // Add cargo load button pressed
+    int cargoLoadToBeAdded = ui->elevatorCargoLoadSpinBox->value();
+
+    // identify selected elevator
+    ElevatorCar* selectedElevator = getSelectedElevator();
+
+    // add new load to elevator
+    int newLoad = selectedElevator->cargoLoad + cargoLoadToBeAdded;
+    selectedElevator->cargoLoad = std::max(0, newLoad);
+    qInfo() << "New cargo load of Elevator " << selectedElevator->elevatorNumber << " is " << selectedElevator->cargoLoad;
+
+    // check if new load exceeds elevator weight limit. If it does set elevator to overloaded.
+    if (newLoad >= selectedElevator->weightLimit){
+        selectedElevator->overloaded = true;
+    } else if (newLoad < selectedElevator->weightLimit){
+        selectedElevator->overloaded = false;
+    }
+}
+
 void MainWindow::setupEventHandlers()
 {
     // start simultation button event handler
@@ -216,6 +237,7 @@ void MainWindow::setupEventHandlers()
 
     // floor up button event handler
     connect(ui->floorUpButton, SIGNAL(released()), this, SLOT(requestElevator()));
+
     // floor down button event handler
     connect(ui->floorDownButton, SIGNAL(released()), this, SLOT(requestElevator()));
 
@@ -236,4 +258,7 @@ void MainWindow::setupEventHandlers()
 
     // elevator fire button functionality
     connect(ui->elevatorFireButton, SIGNAL(released()), this, SLOT(elevatorFireSignal()));
+
+    // elevator cargo load functionality
+    connect(ui->addCargoLoadButton, SIGNAL(released()), this, SLOT(addCargoLoad()));
 }

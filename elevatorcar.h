@@ -41,6 +41,7 @@ public:
     Door* door;
     bool stopFlag;
     AudioSystem* audioSystem;
+    bool overloaded;
 };
 
 #endif // ELEVATORCAR_H
