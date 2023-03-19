@@ -11,6 +11,8 @@ class Button
 public:
     Button() : buttonIsPressed(false){}
     void pressButton();
+
+public:
     bool buttonIsPressed;
 
 private:
