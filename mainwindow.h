@@ -37,5 +37,6 @@ private slots:
     void closeDoors();
     void helpSignal();
     void buildingFireSignal();
+    void elevatorFireSignal();
 };
 #endif // MAINWINDOW_H

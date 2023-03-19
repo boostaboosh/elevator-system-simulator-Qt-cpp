@@ -63,7 +63,7 @@ void MainWindow::populateComboBoxes(int numFloors, int numElevators)
 void MainWindow::startSimulation()
 {    
     // The start simulation button creates a new simulation which stores elevators and floors in arrays.
-    qInfo("starting simulation \nelevators will start on floor zero\n");
+    qInfo("\nstarting simulation \nelevators will start on floor zero\n");
 
     // populate floors array
     numberOfFloors = ui->numberOfFloorsSpinBox->value();
@@ -193,6 +193,22 @@ void MainWindow::buildingFireSignal(){
     }
 }
 
+void MainWindow::elevatorFireSignal(){
+    // elevator fire signal recieved
+
+    // identify selected elevator
+    ElevatorCar* selectedElevator = getSelectedElevator();
+
+    qInfo() << "Elevator " << selectedElevator->elevatorNumber << " fire alarm triggered";
+
+    // display text message informing of emergency and asking to disembark once safe floor is reached
+    selectedElevator->display->displayWarningMessage("Fire alarm triggered - disembark once safe floor is reached");
+    // play audio message informing of emergency and asking to disembark once safe floor is reached
+    selectedElevator->audioSystem->playMessage("Fire alarm triggered - disembark once safe floor is reached");
+    // execute arrival procdure once at safe floor
+    selectedElevator->executeArrivalProcedure(ui->doorObstacleCheckBox->isChecked());
+}
+
 void MainWindow::setupEventHandlers()
 {
     // start simultation button event handler
@@ -217,4 +233,7 @@ void MainWindow::setupEventHandlers()
 
     // building fire button functionality
     connect(ui->buildingFireButton, SIGNAL(released()), this, SLOT(buildingFireSignal()));
+
+    // elevator fire button functionality
+    connect(ui->elevatorFireButton, SIGNAL(released()), this, SLOT(elevatorFireSignal()));
 }
