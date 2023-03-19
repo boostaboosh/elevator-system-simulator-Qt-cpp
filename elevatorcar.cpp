@@ -1,7 +1,8 @@
 #include "elevatorcar.h"
+#include <iostream>
 #include <QDebug>
 #include <chrono>
-#include <thread>
+using namespace std::chrono;
 
 ElevatorCar::ElevatorCar()
 {
@@ -13,6 +14,7 @@ ElevatorCar::ElevatorCar()
     sensor = new ArrivalSensor{};
     bell = new Bell{};
     door = new Door{};
+    stopFlag = false;
 }
 
 ElevatorCar::ElevatorCar(int carWeightLimit, int elevatorNumber, Floor* floor)
@@ -25,9 +27,10 @@ ElevatorCar::ElevatorCar(int carWeightLimit, int elevatorNumber, Floor* floor)
     sensor = new ArrivalSensor{};
     bell = new Bell{};
     door = new Door{};
+    stopFlag = false;
 }
 
-void ElevatorCar::openDoorsForTenSeconds()
+void ElevatorCar::openElevatorAndFloorDoorsForTenSeconds()
 {
     // elevator and floor open their doors
     qInfo() << "Elevator and floor doors:";
@@ -35,9 +38,20 @@ void ElevatorCar::openDoorsForTenSeconds()
     this->currentFloor->door.open();
 
     // elevator and floor remain open for 10 seconds to allow people to board
-    int openingDuration = 10;
     qInfo() << "wait 10 seconds";
-    std::this_thread::sleep_for(std::chrono::seconds(openingDuration));
+    auto startTime = steady_clock::now();
+    while (duration_cast<seconds>(steady_clock::now() - startTime).count() < 10){
+        if (stopFlag == true){
+            return;
+        }
+    }
+}
+
+void ElevatorCar::closeElevatorAndFloorDoors()
+{
+    // elevator and floor close their doors
+    this->door->close();
+    this->currentFloor->door.close();
 }
 
 void ElevatorCar::executeArrivalProcedure()
@@ -46,14 +60,13 @@ void ElevatorCar::executeArrivalProcedure()
     this->bell->ring();
 
     // elevator and floor open their doors for 10 seconds
-    openDoorsForTenSeconds();
+    openElevatorAndFloorDoorsForTenSeconds();
 
     // elevator rings bell again
     this->bell->ring();
 
     // elevator and floor close their doors
-    this->door->close();
-    this->currentFloor->door.close();
+    closeElevatorAndFloorDoors();
 }
 
 void ElevatorCar::moveUp()

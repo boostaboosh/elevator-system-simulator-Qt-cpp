@@ -27,8 +27,8 @@ public:
     void moveUp();
     void moveDown();
     void executeArrivalProcedure();
-    void closeCarAndFloorDoors();
-    void openDoorsForTenSeconds();
+    void closeElevatorAndFloorDoors();
+    void openElevatorAndFloorDoorsForTenSeconds();
 
 public:
     Floor* currentFloor;
@@ -39,7 +39,7 @@ public:
     ArrivalSensor* sensor;
     Bell* bell;
     Door* door;
-
+    bool stopFlag;
 };
 
 #endif // ELEVATORCAR_H

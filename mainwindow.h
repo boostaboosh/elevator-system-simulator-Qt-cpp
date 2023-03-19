@@ -26,11 +26,14 @@ private:
     void setupEventHandlers();
     void populateComboBoxes(int, int);
     void fillComboBoxInRange(QComboBox*, int);
-//    ElevatorCar getClosestElevator(Floor);
     ElevatorCar* getNextElevator();
+    ElevatorCar* getSelectedElevator();
 
 private slots:
     void startSimulation();
     void requestElevator();
+    void sendElevatorToFloor();
+    void openDoors();
+    void closeDoors();
 };
 #endif // MAINWINDOW_H
