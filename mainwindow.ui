@@ -481,37 +481,6 @@
      </property>
     </widget>
    </widget>
-   <widget class="QGroupBox" name="groupBox_8">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>250</y>
-      <width>301</width>
-      <height>301</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>14</pointsize>
-     </font>
-    </property>
-    <property name="title">
-     <string>elevators and their floors</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-    <widget class="QTextEdit" name="elevatorListTextEdit">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>40</y>
-       <width>281</width>
-       <height>251</height>
-      </rect>
-     </property>
-    </widget>
-   </widget>
    <widget class="QGroupBox" name="groupBox_9">
     <property name="geometry">
      <rect>
