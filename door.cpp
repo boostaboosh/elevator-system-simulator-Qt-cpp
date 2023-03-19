@@ -10,8 +10,13 @@ Door::Door()
 
 void Door::close()
 {
-    doorIsOpen = false;
-    qInfo() << "close door";
+    if (lightSensor.lightInterrupted == true)
+    {
+        qInfo() << "Cannot close doors because obstructed!";
+    } else if (lightSensor.lightInterrupted == false){
+        doorIsOpen = false;
+        qInfo() << "close door";
+    }
 }
 
 void Door::open()

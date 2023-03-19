@@ -26,8 +26,8 @@ public:
     void goToFloor(Floor* destinationFloor);
     void moveUp();
     void moveDown();
-    void executeArrivalProcedure();
-    void closeElevatorAndFloorDoors();
+    void executeArrivalProcedure(bool obstructed);
+    void closeElevatorAndFloorDoors(bool obstructed);
     void openElevatorAndFloorDoorsForTenSeconds();
 
 public:

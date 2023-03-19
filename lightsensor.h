@@ -8,9 +8,6 @@ class LightSensor
 {
 public:
     LightSensor();
-    void recieveSignal();
-
-private:
     bool lightInterrupted;
 };
 

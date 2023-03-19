@@ -267,7 +267,7 @@
       <string notr="true"/>
      </property>
      <property name="text">
-      <string>door obstacle</string>
+      <string>obstruct door</string>
      </property>
     </widget>
     <widget class="QGroupBox" name="groupBox_6">

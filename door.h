@@ -12,8 +12,6 @@ public:
     Door();
     void open();
     void close();
-
-private:
     bool doorIsOpen;
     LightSensor lightSensor;
 };

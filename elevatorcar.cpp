@@ -47,14 +47,23 @@ void ElevatorCar::openElevatorAndFloorDoorsForTenSeconds()
     }
 }
 
-void ElevatorCar::closeElevatorAndFloorDoors()
+void ElevatorCar::closeElevatorAndFloorDoors(bool obstructed)
 {
+    // if obstructed doors checkbox is checked I need to interrupt the elevator door's light sensor
+    if (obstructed){
+        this->door->lightSensor.lightInterrupted = true;
+        this->currentFloor->door.lightSensor.lightInterrupted = true;
+    } else if (!obstructed) {
+        this->door->lightSensor.lightInterrupted = false;
+        this->currentFloor->door.lightSensor.lightInterrupted = false;
+    }
+
     // elevator and floor close their doors
     this->door->close();
     this->currentFloor->door.close();
 }
 
-void ElevatorCar::executeArrivalProcedure()
+void ElevatorCar::executeArrivalProcedure(bool obstructed)
 {
     // elevator rings its bell
     this->bell->ring();
@@ -66,7 +75,7 @@ void ElevatorCar::executeArrivalProcedure()
     this->bell->ring();
 
     // elevator and floor close their doors
-    closeElevatorAndFloorDoors();
+    closeElevatorAndFloorDoors(obstructed);
 }
 
 void ElevatorCar::moveUp()

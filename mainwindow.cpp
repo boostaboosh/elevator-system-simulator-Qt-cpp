@@ -112,7 +112,7 @@ void MainWindow::requestElevator()
     nextElevator->goToFloor(thisFloor);
 
     // execute arrival procedure
-    nextElevator->executeArrivalProcedure();
+    nextElevator->executeArrivalProcedure(ui->doorObstacleCheckBox->isChecked());
 }
 
 ElevatorCar* MainWindow::getSelectedElevator()
@@ -135,7 +135,7 @@ void MainWindow::sendElevatorToFloor()
     // send selected elevator to selected destination floor
     selectedElevator->goToFloor(destinationFloor);
     // execute arrival procedure after selected elevator arrives at arrival floor
-    selectedElevator->executeArrivalProcedure();
+    selectedElevator->executeArrivalProcedure(ui->doorObstacleCheckBox->isChecked());
 }
 
 void MainWindow::openDoors()
@@ -148,7 +148,7 @@ void MainWindow::openDoors()
     selectedElevator->openElevatorAndFloorDoorsForTenSeconds();
 
     // close the doors again
-    selectedElevator->closeElevatorAndFloorDoors();
+    selectedElevator->closeElevatorAndFloorDoors(ui->doorObstacleCheckBox->isChecked());
 }
 
 void MainWindow::closeDoors()
@@ -161,7 +161,7 @@ void MainWindow::closeDoors()
 
     // close the doors of the selected elevator
     qInfo() << "Elevator number " << selectedElevator->elevatorNumber;
-    selectedElevator->closeElevatorAndFloorDoors();
+    selectedElevator->closeElevatorAndFloorDoors(ui->doorObstacleCheckBox->isChecked());
 }
 
 void MainWindow::helpSignal()
