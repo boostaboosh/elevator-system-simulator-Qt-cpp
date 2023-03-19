@@ -11,12 +11,6 @@ using namespace std;
 #include <QCoreApplication>
 #include <algorithm>
 
-//Floor* floors;
-//ElevatorCar* elevators;
-
-//int numberOfFloors;
-//int numberOfElevators;
-
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
