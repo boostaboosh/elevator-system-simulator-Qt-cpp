@@ -58,7 +58,7 @@ void MainWindow::populateComboBoxes(int numFloors, int numElevators)
 void MainWindow::startSimulation()
 {    
     // The start simulation button creates a new simulation which stores elevators and floors in arrays.
-    qInfo("\nstarting simulation \nelevators will start on floor zero\n");
+    qInfo("\nstarting simulation \nelevators will start on floor one\n");
 
     // populate floors array
     numberOfFloors = ui->numberOfFloorsSpinBox->value();
